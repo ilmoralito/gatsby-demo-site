@@ -10,5 +10,9 @@
   {
     "name": "elixir",
     "site": "https://elixir-lang.com"
+  },
+  {
+    "name": "lua",
+    "site": "https://lua-lang.org"
   }
 ]
