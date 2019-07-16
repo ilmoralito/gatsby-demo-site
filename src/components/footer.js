@@ -20,8 +20,6 @@ export default () => {
 
   return (
     <div>
-      <hr />
-
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore,
         rerum.

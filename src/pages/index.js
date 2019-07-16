@@ -1,7 +1,8 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
-export default () => (
+export default ({ data }) => (
   <Layout>
     <div>
       <h1>Hello beautiful world!</h1>
@@ -15,6 +16,47 @@ export default () => (
       </p>
 
       <img src="https://source.unsplash.com/random/400x200" alt="" />
+
+      <Languages languages={data.allLanguagesJson.edges} />
     </div>
   </Layout>
 )
+
+const Languages = props => {
+  const languages = props.languages
+  return (
+    <table>
+      <caption>My favorite programing languages</caption>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Site</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {languages.map(language => (
+          <tr>
+            <td>{language.node.name}</td>
+            <td>
+              <a href={language.node.site}>{language.node.site}</a>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )
+}
+
+export const query = graphql`
+  query {
+    allLanguagesJson {
+      edges {
+        node {
+          name
+          site
+        }
+      }
+    }
+  }
+`

@@ -30,6 +30,7 @@ module.exports = {
     ],
   },
   plugins: [
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
