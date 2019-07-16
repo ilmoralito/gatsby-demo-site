@@ -50,7 +50,7 @@ const Languages = props => {
 
 export const query = graphql`
   query {
-    allLanguagesJson {
+    allLanguagesJson(sort: { fields: [name], order: ASC }) {
       edges {
         node {
           name
