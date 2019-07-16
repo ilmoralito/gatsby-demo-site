@@ -1,0 +1,14 @@
+[
+  {
+    "name": "javascript",
+    "site": "https://javascript.info"
+  },
+  {
+    "name": "groovy",
+    "site": "https://groovy-lang.com"
+  },
+  {
+    "name": "elixir",
+    "site": "https://elixir-lang.com"
+  }
+]

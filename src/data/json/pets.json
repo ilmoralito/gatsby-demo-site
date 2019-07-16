@@ -1,0 +1,17 @@
+[
+  {
+    "name": "lola",
+    "type": "rabbit",
+    "genre": "female"
+  },
+  {
+    "name": "nami",
+    "type": "dog",
+    "genre": "female"
+  },
+  {
+    "name": "bonita",
+    "type": "dog",
+    "genre": "female"
+  }
+]
