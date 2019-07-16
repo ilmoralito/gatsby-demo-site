@@ -3,7 +3,6 @@ import Layout from "../components/layout"
 import { graphql } from "gatsby"
 
 export default ({ data }) => {
-  console.log(data)
   return (
     <Layout>
       <h1>About me</h1>
@@ -22,7 +21,7 @@ export default ({ data }) => {
         placeat quaerat! Dignissimos error quibusdam reprehenderit vitae.
       </p>
 
-      {/*<Hobby hobbies={data.allFile.edges} />*/}
+      <Hobby hobbies={data.allFile.edges} />
       {/*<Page pages={data.allFile.edges} />*/}
     </Layout>
   )
