@@ -3,6 +3,8 @@ import Layout from "../components/layout"
 import { graphql } from "gatsby"
 
 export default ({ data }) => {
+  const { jsonData, pagesData } = data;
+
   return (
     <Layout>
       <h1>About me</h1>
@@ -21,8 +23,8 @@ export default ({ data }) => {
         placeat quaerat! Dignissimos error quibusdam reprehenderit vitae.
       </p>
 
-      <Hobby hobbies={data.allFile.edges} />
-      {/*<Page pages={data.allFile.edges} />*/}
+      <Hobby hobbies={jsonData.edges} />
+      <Page pages={pagesData.edges} />
     </Layout>
   )
 }
@@ -59,19 +61,14 @@ const Page = props => {
 
 export const query = graphql`
   query {
-    allFile(filter: { sourceInstanceName: { eq: "json" } }) {
+    jsonData: allFile(filter: { sourceInstanceName: { eq: "json" } }) {
       edges {
         node {
           name
         }
       }
     }
-  }
-`
-
-export const pagesQuery = graphql`
-  query {
-    allFile(filter: { sourceInstanceName: { eq: "pages" } }) {
+    pagesData: allFile(filter: { sourceInstanceName: { eq: "pages" } }) {
       edges {
         node {
           name
