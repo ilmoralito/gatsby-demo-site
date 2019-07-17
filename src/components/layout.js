@@ -27,6 +27,9 @@ export default ({ children }) => {
           <li style={{ display: "inline-block", paddingLeft: "10px" }}>
             <Link to={"/about/"}>About</Link>
           </li>
+          <li style={{ display: "inline-block", paddingLeft: "10px" }}>
+            <Link to={"/contact/"}>Contact</Link>
+          </li>
         </ul>
       </nav>
       {children}
