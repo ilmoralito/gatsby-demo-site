@@ -1,7 +1,8 @@
 import React from "react"
 import Header from "./header"
 import Footer from "./footer"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import Nav from "./nav"
+import { useStaticQuery, graphql } from "gatsby"
 
 export default ({ children }) => {
   const data = useStaticQuery(
@@ -19,19 +20,7 @@ export default ({ children }) => {
   return (
     <div style={{ width: "700px", margin: "0 auto" }}>
       <Header title={data.site.siteMetadata.title} />
-      <nav>
-        <ul style={{ listStyleType: "none", margin: 0, padding: 0 }}>
-          <li style={{ display: "inline-block" }}>
-            <Link to={"/"}>Home</Link>
-          </li>
-          <li style={{ display: "inline-block", paddingLeft: "10px" }}>
-            <Link to={"/about/"}>About</Link>
-          </li>
-          <li style={{ display: "inline-block", paddingLeft: "10px" }}>
-            <Link to={"/contact/"}>Contact</Link>
-          </li>
-        </ul>
-      </nav>
+      <Nav />
       {children}
       <Footer />
     </div>
