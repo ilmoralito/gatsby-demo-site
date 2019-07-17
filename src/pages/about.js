@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import { graphql } from "gatsby"
 
 export default ({ data }) => {
-  const { jsonData, pagesData } = data;
+  const { jsonData, pagesData, csvData } = data
 
   return (
     <Layout>
@@ -25,6 +25,7 @@ export default ({ data }) => {
 
       <Hobby hobbies={jsonData.edges} />
       <Page pages={pagesData.edges} />
+      <CsvTable letters={csvData.edges} />
     </Layout>
   )
 }
@@ -59,6 +60,27 @@ const Page = props => {
   )
 }
 
+const CsvTable = props => (
+  <table>
+    <caption>Letters</caption>
+    <thead>
+      <tr>
+        <td>Letter</td>
+        <td>Value</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      {props.letters.map(letter => (
+        <tr>
+          <td>{letter.node.letter}</td>
+          <td>{letter.node.value}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+)
+
 export const query = graphql`
   query {
     jsonData: allFile(filter: { sourceInstanceName: { eq: "json" } }) {
@@ -72,6 +94,14 @@ export const query = graphql`
       edges {
         node {
           name
+        }
+      }
+    }
+    csvData: allLettersCsv {
+      edges {
+        node {
+          letter
+          value
         }
       }
     }

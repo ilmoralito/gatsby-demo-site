@@ -30,27 +30,35 @@ module.exports = {
     ],
   },
   plugins: [
-    `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: 'src/utils/typography'
-      }
+        pathToConfigModule: "src/utils/typography",
+      },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'pages',
-        path: `${__dirname}/src/pages`
-      }
+        name: "pages",
+        path: `${__dirname}/src/pages`,
+      },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'json',
-        path: `${__dirname}/src/data/json/`
-      }
+        name: "json",
+        path: `${__dirname}/src/data/json/`,
+      },
     },
-    `gatsby-transformer-remark`
-  ]
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "csv",
+        path: `${__dirname}/src/data/csv/`,
+      },
+    },
+    `gatsby-transformer-remark`,
+    `gatsby-transformer-csv`,
+    `gatsby-transformer-json`,
+  ],
 }
